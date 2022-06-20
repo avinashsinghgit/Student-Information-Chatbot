@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form action="/" method="POST">
+    {% csrf_token %}
+        <label for="First_Name">First Name
+            <input type="text" id="First_Name" name="First_Name" placeholder="Enter First Name">
+        </label>
+        <br>
+        <br>
+    
+        <label for="Last_Name">Last Name
+            <input type="text" id="Last_Name" name="Last_Name" placeholder="Enter Last Name">
+        </label>
+        <br>
+        <br>
+
+        <label for="male">Male
+            <input type="radio" id="male" name="gender" value="male">
+        </label>
+
+        <label for="female">Female
+            <input type="radio" id="female" name="gender" value="female">
+        </label>
+
+        <label for="Others">Others
+            <input type="radio" id="Others" name="gender" value="Others">
+        </label>
+        <br>
+        <br>
+    
+        <label for="Father_Name">Father Name
+            <input type="text" id="Father_Name" name="Father_Name" placeholder="Enter Father's Name">
+        </label>
+        <br>
+        <br>
+    
+        <label for="Mother_Name">Mother Name
+            <input type="text" id="Mother_Name" name="Mother_Name" placeholder="Enter Mother's Name">
+        </label>
+        <br>
+        <br>
+    
+        <label for="Date_Of_Birth">Date of Birth
+            <input type="date" id="Date_Of_Birth" name="Date_Of_Birth" value="{{placement.date|date:"Y-m-d" }}">
+        </label>
+        <br>
+        <br>
+
+        <label for="roll">Roll No.
+            <input type="text" id="roll" name="roll" placeholder="Enter Roll Number">
+        </label>
+        <br>
+        <br>
+    
+        
+         <label for="branch" name="branch">Branch
+            <select name="branch" id="branch">
+                <option selected disabled="true">- - Select Branch - -</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Computer Sceince & Engineering">Computer Sceince & Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+                <option value="Chemical Engineering">Chemical Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+            </select>
+        </label>
+        <br>
+        <br>
+    
+        <label for="year" name="year">Year
+            <select name="year" id="year">
+                <option selected disabled="true">- - Select Year - -</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+            </select>
+        </label>
+        <br>
+        <br>
+
+        <label for="Contact_Number">Student Contact Number
+            <input type="number" id="Contact_Number" name="Contact_Number" placeholder="Contact Number" maxlength="10">
+        </label>
+        <br>
+        <br>
+ 
+        <label for="Father_Contact_Number">Father's Contact Number
+            <input type="number" id="Father_Contact_Number" name="Father_Contact_Number" placeholder="Father's Contact Number" maxlength="10">
+        </label>
+        <br>
+        <br>
+ 
+        <label for="Mother_Contact_Number">Mothers's Contact Number
+            <input type="number" id="Mother_Contact_Number" name="Mother_Contact_Number" placeholder="Mother's Contact Number" maxlength="10">
+        </label>
+        <br>
+        <br>
+ 
+        <label for="Email_Id">Email Id
+            <input type="email" id="Email_Id" name="Email_Id" placeholder="Enter Email Id">
+        </label>
+        <br>
+        <br>
+ 
+        <label for="Aadhar_Number">Aadhar Number
+            <input type="number" id="Aadhar_Number" name="Aadhar_Number" placeholder="Aadhar Number">
+        </label>
+        <br>
+        <br>
+ 
+        <label for="Address">Address
+            <br>
+            <textarea name="Address" id="Address" cols="30" rows="10" placeholder="Address Detail's"></textarea>
+        </label>
+        <br>
+        <br>
+ 
+    
+        <button type="submit">Submit</button>
+
+
+
+    </form>
+    
+</body>
+</html>
