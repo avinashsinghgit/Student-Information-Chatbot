@@ -3,8 +3,7 @@ from datetime import datetime
 # Create your models here.
 
 class Info(models.Model):
-    First_Name=models.CharField(max_length=100)
-    Last_Name=models.CharField(max_length=100)
+    Student_Name=models.CharField(max_length=100)
     Father_Name=models.CharField(max_length=100)
     Mother_Name=models.CharField(max_length=100)
     Date_Of_Birth=models.DateField(null=True)
@@ -21,5 +20,5 @@ class Info(models.Model):
 
 
     def __str__(self):
-        return self.First_Name
+        return self.Student_Name
     

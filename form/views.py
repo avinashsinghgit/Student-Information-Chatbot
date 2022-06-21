@@ -8,8 +8,7 @@ def index(request):
     try:
 
         if request.method=="POST":
-            First_Name=request.POST.get("First_Name")
-            Last_Name=request.POST.get("Last_Name")
+            Student_Name=request.POST.get("Student_Name")
             Father_Name=request.POST.get("Father_Name")
             Mother_Name=request.POST.get("Mother_Name")
             Date_Of_Birth=request.POST.get("Date_Of_Birth")
@@ -23,12 +22,13 @@ def index(request):
             Aadhar_Number=request.POST.get("Aadhar_Number")
             Address=request.POST.get("Address")
 
-            info=Info(First_Name=First_Name, Last_Name=Last_Name, gender=gender, Father_Name=Father_Name, 
+            info=Info(Student_Name=Student_Name, gender=gender, Father_Name=Father_Name, 
             Mother_Name=Mother_Name, Date_Of_Birth=Date_Of_Birth, roll=roll, branch=branch, year=year, 
             Contact_Number=Contact_Number, Father_Contact_Number=Father_Contact_Number, Mother_Contact_Number=Mother_Contact_Number,
             Aadhar_Number=Aadhar_Number,Address=Address)
 
             info.save()
+            
     except:
         return render(request, "error.html")
 

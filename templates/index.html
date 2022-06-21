@@ -5,133 +5,584 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
 
-    <form action="/" method="POST">
-    {% csrf_token %}
-        <label for="First_Name">First Name
-            <input type="text" id="First_Name" name="First_Name" placeholder="Enter First Name">
-        </label>
+    <center><h1>Student Information ChatBot</h1></center>
+    <div class="heading_bottom">
         <br>
-        <br>
-    
-        <label for="Last_Name">Last Name
-            <input type="text" id="Last_Name" name="Last_Name" placeholder="Enter Last Name">
-        </label>
-        <br>
-        <br>
+    </div>
+    <div class="container">
+            <!--       *********************  ChatBot  *********************   -->
 
-        <label for="male">Male
-            <input type="radio" id="male" name="gender" value="male">
-        </label>
+            <iframe class="chatbot"
+                allow="microphone;"
+                width="350"
+                height="430"
+                src="https://console.dialogflow.com/api-client/demo/embedded/afc63c92-cade-41f0-9fe9-a7a4f29e4b9c">
+            </iframe>
 
-        <label for="female">Female
-            <input type="radio" id="female" name="gender" value="female">
-        </label>
 
-        <label for="Others">Others
-            <input type="radio" id="Others" name="gender" value="Others">
-        </label>
-        <br>
-        <br>
-    
-        <label for="Father_Name">Father Name
-            <input type="text" id="Father_Name" name="Father_Name" placeholder="Enter Father's Name">
-        </label>
-        <br>
-        <br>
-    
-        <label for="Mother_Name">Mother Name
-            <input type="text" id="Mother_Name" name="Mother_Name" placeholder="Enter Mother's Name">
-        </label>
-        <br>
-        <br>
-    
-        <label for="Date_Of_Birth">Date of Birth
-            <input type="date" id="Date_Of_Birth" name="Date_Of_Birth" value="{{placement.date|date:"Y-m-d" }}">
-        </label>
-        <br>
-        <br>
 
-        <label for="roll">Roll No.
-            <input type="text" id="roll" name="roll" placeholder="Enter Roll Number">
-        </label>
-        <br>
-        <br>
-    
+            <!--       *********************  Form  *********************   -->
+
+            <form action="/" method="POST" class="form">
+            <!-- {% csrf_token %} -->
+
+                <label for="Student_Name" class="label_student_name" >Student Name
+                    <br>
+                    <input type="text" id="Student_Name" name="Student_Name" placeholder="Enter Your Name">
+                </label>
+                <br>
+                <br>
+
+
+                <label for="male" class="label_gender">Male
+                    <input type="radio" id="male" name="gender" value="male">
+                </label>
+
+                <label for="female" class="label_gender">Female
+                    <input type="radio" id="female" name="gender" value="female">
+                </label>
+
+                <label for="Others" class="label_gender">Others
+                    <input type="radio" id="Others" name="gender" value="Others">
+                </label>
+                <br>
+                <br>
+            
+                <label for="Father_Name" class="label_father_name">Father Name
+                    <br>
+                    <input type="text" id="Father_Name" name="Father_Name" placeholder="Enter Father's Name">
+                </label>
+                <br>
+                <br>
+            
+                <label for="Mother_Name" class="label_mother_name">Mother Name
+                    <br>
+                    <input type="text" id="Mother_Name" name="Mother_Name" placeholder="Enter Mother's Name">
+                </label>
+                <br>
+                <br>
+            
+                <span>
+                <label for="Date_Of_Birth" class="label_date_of_birth">Date of Birth
+                </span>
+                    <br>
+                    <input type="date" id="Date_Of_Birth" name="Date_Of_Birth" value="{{placement.date|date:"Y-m-d" }}">
+                </label>
+                
+
+                <span>
+                    <label for="roll" class="label_roll">Roll No.
+                </span>
+                        <br>
+                        <input type="text" id="roll" name="roll" placeholder="Enter Roll Number">
+                    </label>
+                
+                    <br>
+                    <br>
+            
+                <span>
+                    <label for="branch" name="branch" class="label_branch"> Branch
+                </span>
+                    <br>
+                    <select name="branch" id="branch">
+                        <option selected disabled="true">- - Select Branch - -</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Computer Sceince & Engineering">Computer Sceince & Engineering</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                    </select>
+                </label>
+            
+                <span>
+                    <label for="year" name="year" class="label_year">Year
+                </span>
+                <br>
+                    <select name="year" id="year">
+                        <option selected disabled="true">- - Select Year - -</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                    </select>
+                </label>
+                <br>
+                <br>
+
+                <label for="Contact_Number" class="label_student_contact_number">Student Contact Number
+                    <input type="number" id="Contact_Number" name="Contact_Number" placeholder="Contact Number" maxlength="10">
+                </label>
+                <br>
+                <br>
         
-         <label for="branch" name="branch">Branch
-            <select name="branch" id="branch">
-                <option selected disabled="true">- - Select Branch - -</option>
-                <option value="Electrical Engineering">Electrical Engineering</option>
-                <option value="Computer Sceince & Engineering">Computer Sceince & Engineering</option>
-                <option value="Information Technology">Information Technology</option>
-                <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
-                <option value="Chemical Engineering">Chemical Engineering</option>
-                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                <option value="Civil Engineering">Civil Engineering</option>
-            </select>
-        </label>
-        <br>
-        <br>
-    
-        <label for="year" name="year">Year
-            <select name="year" id="year">
-                <option selected disabled="true">- - Select Year - -</option>
-                <option value="1st Year">1st Year</option>
-                <option value="2nd Year">2nd Year</option>
-                <option value="3rd Year">3rd Year</option>
-                <option value="4th Year">4th Year</option>
-            </select>
-        </label>
-        <br>
-        <br>
-
-        <label for="Contact_Number">Student Contact Number
-            <input type="number" id="Contact_Number" name="Contact_Number" placeholder="Contact Number" maxlength="10">
-        </label>
-        <br>
-        <br>
- 
-        <label for="Father_Contact_Number">Father's Contact Number
-            <input type="number" id="Father_Contact_Number" name="Father_Contact_Number" placeholder="Father's Contact Number" maxlength="10">
-        </label>
-        <br>
-        <br>
- 
-        <label for="Mother_Contact_Number">Mothers's Contact Number
-            <input type="number" id="Mother_Contact_Number" name="Mother_Contact_Number" placeholder="Mother's Contact Number" maxlength="10">
-        </label>
-        <br>
-        <br>
- 
-        <label for="Email_Id">Email Id
-            <input type="email" id="Email_Id" name="Email_Id" placeholder="Enter Email Id">
-        </label>
-        <br>
-        <br>
- 
-        <label for="Aadhar_Number">Aadhar Number
-            <input type="number" id="Aadhar_Number" name="Aadhar_Number" placeholder="Aadhar Number">
-        </label>
-        <br>
-        <br>
- 
-        <label for="Address">Address
-            <br>
-            <textarea name="Address" id="Address" cols="30" rows="10" placeholder="Address Detail's"></textarea>
-        </label>
-        <br>
-        <br>
- 
-    
-        <button type="submit">Submit</button>
+                <label for="Father_Contact_Number" class="label_father_contact_number">Father's Contact Number
+                    <input type="number" id="Father_Contact_Number" name="Father_Contact_Number" placeholder="Father's Contact Number" maxlength="10">
+                </label>
+                <br>
+                <br>
+        
+                <label for="Mother_Contact_Number" class="label_mother_contact_number">Mothers's Contact Number
+                    <input type="number" id="Mother_Contact_Number" name="Mother_Contact_Number" placeholder="Mother's Contact Number" maxlength="10">
+                </label>
+                <br>
+                <br>
+        
+                <label for="Email_Id" class="label_email">Email Id
+                    <input type="email" id="Email_Id" name="Email_Id" placeholder="Enter Email Id">
+                </label>
+                <br>
+                <br>
+        
+                <label for="Aadhar_Number" class="label_aadhar">Aadhar Number
+                    <input type="number" id="Aadhar_Number" name="Aadhar_Number" placeholder="Aadhar Number">
+                </label>
+                <br>
+                <br>
+                <br>
+        
+                <label for="Address"class="label_address">Address
+                    <br>
+                    <textarea name="Address" id="Address" cols="30" rows="10" placeholder="Address Detail's"></textarea>
+                </label>
+                <br>
+                <br>
+        
+            
+                <button type="submit" class="submit_button">Submit</button>
 
 
 
-    </form>
+            </form>
+
+    </div>
     
 </body>
+
+
+
+
+<!--  ######################  CSS  ###################### -->
+
+
+<style>
+    *{
+        margin: 0;
+        padding:0;
+        /* background: url("https://source.unsplash.com/ute2XAFQU2I/1733x600"); */
+        /* background: rgba(88, 85, 85, 0.7) url("https://source.unsplash.com/ute2XAFQU2I/1733x600"); */
+        /* background-color: beige; */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center; 
+        background-attachment: fixed;
+        /* z-index: -10000000000000000000; */
+
+    }
+
+    .container{
+        padding-top: 0.5rem;
+        background: url("https://source.unsplash.com/Oalh2MojUuk");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center; 
+        background-attachment: fixed;
+        height: 130rem;
+        background-color: yellow;
+    }
+
+                     /* #########################  ChatBot   ######################### */
+    .chatbot{
+        /* float: right; */
+        height:28rem;
+        margin:5.5rem 5rem 0 65rem;
+        border: 2;
+        position: fixed;
+    }
+
+    h1{
+        /* margin-top:2rem; */
+        font-size: 5rem;
+        background-color: rgba(243, 129, 15, 0.96);
+    }
+    .heading_bottom{
+        background-color:black;
+        height:0.5rem;
+    }
+
+    .form{
+        margin:5rem 0 0 12.5rem;
+        padding:5rem 1rem 5rem 5rem;
+        width:40rem;
+        /* margin-left: 1rem; */
+        font-size: 1.5rem;
+        background-color: rgb(175, 243, 191);
+        /* background:url("https://source.unsplash.com/XsQ8nUKpAO4/1733x600"); */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center; 
+        background-attachment: fixed;
+        border-radius: 2rem;
+        /* z-index: 900000000000000000000000000; */
+        box-shadow: 1rem 1rem 1rem 1rem rgb(243, 242, 238);
+    }
+
+    form.form{
+        z-index: 100000;
+    }
+
+
+    #Student_Name{ 
+        font-size: 1rem;
+        width:35rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+
+    .label_student_name{
+        background-color:transparent;
+        margin-right:10rem;
+        /* margin-left: -3rem; */
+    }
+
+    .label_student_name:hover{
+        cursor:pointer;
+    }
+
+    /* Gender */
+
+    .label_gender{
+        background-color:transparent;
+        margin-left: 2.5rem;
+    }
+
+    .label_gender:hover{
+        cursor:pointer;
+    }
+
+    /* Father Name */
+
+    #Father_Name{
+        font-size: 1rem;
+        width:35rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_father_name{
+        background-color:transparent;
+        margin-left: 0.5rem;
+    }
+
+    .label_father_name:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Mother Name */
+
+    #Mother_Name{
+        font-size: 1rem;
+        width:35rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_mother_name{
+        background-color:transparent;
+        margin-left: 0.5rem;
+    }
+
+    .label_mother_name:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Date of Birth */
+
+    #Date_Of_Birth{
+        font-size: 1.3rem;
+        width:15rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_date_of_birth{
+        background-color:transparent;
+        margin-left: 0.5rem;
+    }
+
+    .label_date_of_birth:hover{
+        cursor:pointer;
+    }
+
+    span{
+        background-color: transparent;
+    }
+
+    
+    /* Roll Number */
+
+    #roll{
+        font-size: 1.3rem;
+        width:15rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        margin-top: -3.3rem;
+        margin-right: 4rem;
+        background-color:white;
+        float:right;
+        border-radius: 0.6rem;
+    }
+
+    .label_roll{
+        background-color:transparent;
+        margin-top: -2rem;
+        margin-right: 13rem;
+        width:6rem;
+        float:right;
+    }
+    
+    /* .label.label_roll{
+        margin-top: 10rem;
+    } */
+
+    .label_roll:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Branch Name */
+
+    #branch{
+        font-size: 1.3rem;
+        width:15rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_branch{
+        background-color:transparent;
+        margin-left: 0.5rem;
+    }
+
+    .label_branch:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Year Of Study */
+
+    #year{
+        font-size: 1.3rem;
+        width:15rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        margin-top: -3.3rem;
+        margin-right: 4rem;
+        background-color:white;
+        float:right;
+        border-radius: 0.6rem;
+    }
+
+    .label_year{
+        background-color:transparent;
+        margin-top: -2rem;
+        margin-right: 13rem;
+        width:6rem;
+        float:right;
+    }
+
+    .label_year:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Contact Number */
+
+    #Contact_Number{
+        font-size: 1rem;
+        width:35rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_student_contact_number{
+        background-color:transparent;
+        margin-right:10rem;
+    }
+
+    .label_student_contact_number:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Father's Contact Number */
+
+    #Father_Contact_Number{
+        font-size: 1rem;
+        width:35rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_father_contact_number{
+        background-color:transparent;
+        margin-right:10rem;
+    }
+
+    .label_father_contact_number:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Mothers's Contact Number */
+
+    #Mother_Contact_Number{
+        font-size: 1rem;
+        width:35rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_mother_contact_number{
+        background-color:transparent;
+        margin-right:10rem;
+    }
+
+    .label_mother_contact_number:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Email Id */
+
+    #Email_Id{
+        font-size: 1rem;
+        width:35rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_email{
+        background-color:transparent;
+        margin-right:10rem;
+    }
+
+    .label_email:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Aadhar Number */
+
+    #Aadhar_Number{
+        font-size: 1rem;
+        width:35rem;
+        height:3rem;
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_aadhar{
+        background-color:transparent;
+        margin-right:10rem;
+    }
+
+    .label_aadhar:hover{
+        cursor:pointer;
+    }
+
+    
+    /* Aadhar Number */
+
+    #Address{
+        font-size: 1rem;
+        width:35rem;
+        /* height:3rem; */
+        padding-left: 0.5rem;
+        background-color:white;
+        margin-top: 1rem;
+        border-radius: 0.6rem;
+    }
+
+    .label_address{
+        background-color:transparent;
+        margin-left: 0.5rem;
+        margin-bottom: 10rem;
+    }
+
+    .label_address:hover{
+        cursor:pointer;
+    }
+
+
+    /* Submit Button */
+
+    .submit_button{
+        /* width:8rem;
+        height:2rem;
+        border-radius: 2rem;
+        font-size: 1.5rem;
+        background-color:rgba(15, 235, 15, 0.855); */
+
+        background: #71c8ed;
+        /* color: #fff; */
+        border: 1px solid #eee;
+        border-radius: 20px;
+        width:8rem;
+        height:3rem;
+        font-size: 1.5rem;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+    .submit_button:hover{
+        cursor:pointer;
+        background: #016ABC;
+        color: #fff;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+</style>
+
+
 </html>
