@@ -16,12 +16,30 @@
     <div class="container">
             <!--       *********************  ChatBot  *********************   -->
 
-            <iframe class="chatbot"
+            <iframe class="chatbot" id="chatbot_form"
                 allow="microphone;"
                 width="350"
                 height="430"
+                onload="closeForm()"
                 src="https://console.dialogflow.com/api-client/demo/embedded/afc63c92-cade-41f0-9fe9-a7a4f29e4b9c">
             </iframe>
+            <input type="image" class="chatbot_button" src="robot.jpg" />
+
+
+
+            <script>
+                const button = document.querySelector('input');
+                const popup = document.querySelector('.chatbot');
+            
+                button.addEventListener('click', ()=>{
+                popup.style.display === 'none' ? popup.style.display = 'block' : popup.style.display = 'none';
+                })
+
+                function closeForm() {
+                    document.getElementById("chatbot_form").style.display = "none";
+                }
+            </script>
+
 
 
 
@@ -37,6 +55,8 @@
                 <br>
                 <br>
 
+                <label class="label_gender_category">Gender</label>
+                <br>
 
                 <label for="male" class="label_gender">Male
                     <input type="radio" id="male" name="gender" value="male">
@@ -46,9 +66,6 @@
                     <input type="radio" id="female" name="gender" value="female">
                 </label>
 
-                <label for="Others" class="label_gender">Others
-                    <input type="radio" id="Others" name="gender" value="Others">
-                </label>
                 <br>
                 <br>
             
@@ -116,31 +133,31 @@
                 <br>
 
                 <label for="Contact_Number" class="label_student_contact_number">Student Contact Number
-                    <input type="number" id="Contact_Number" name="Contact_Number" placeholder="Contact Number" maxlength="10">
+                    <input type="tel" id="Contact_Number" name="Contact_Number" placeholder="Contact Number" maxlength="10">
                 </label>
                 <br>
                 <br>
         
                 <label for="Father_Contact_Number" class="label_father_contact_number">Father's Contact Number
-                    <input type="number" id="Father_Contact_Number" name="Father_Contact_Number" placeholder="Father's Contact Number" maxlength="10">
+                    <input type="tel" id="Father_Contact_Number" name="Father_Contact_Number" placeholder="Father's Contact Number" maxlength="10">
                 </label>
                 <br>
                 <br>
         
                 <label for="Mother_Contact_Number" class="label_mother_contact_number">Mothers's Contact Number
-                    <input type="number" id="Mother_Contact_Number" name="Mother_Contact_Number" placeholder="Mother's Contact Number" maxlength="10">
+                    <input type="tel" id="Mother_Contact_Number" name="Mother_Contact_Number" placeholder="Mother's Contact Number" maxlength="10">
                 </label>
                 <br>
                 <br>
         
                 <label for="Email_Id" class="label_email">Email Id
-                    <input type="email" id="Email_Id" name="Email_Id" placeholder="Enter Email Id">
+                    <input type="email" id="Email_Id" name="Email_Id" placeholder="Enter Email Id" >
                 </label>
                 <br>
                 <br>
         
                 <label for="Aadhar_Number" class="label_aadhar">Aadhar Number
-                    <input type="number" id="Aadhar_Number" name="Aadhar_Number" placeholder="Aadhar Number">
+                    <input type="text" maxlength="12" pattern="\d{12}" title="Please enter exactly 10 digits" id="Aadhar_Number" name="Aadhar_Number" placeholder="Aadhar Number" >
                 </label>
                 <br>
                 <br>
@@ -153,16 +170,17 @@
                 <br>
                 <br>
         
-            
-                <button type="submit" class="submit_button">Submit</button>
+                <button type="submit" class="submit_button">Submit</button >
 
 
 
             </form>
 
+
     </div>
     
 </body>
+
 
 
 
@@ -198,12 +216,36 @@
 
                      /* #########################  ChatBot   ######################### */
     .chatbot{
-        /* float: right; */
-        height:28rem;
-        margin:5.5rem 5rem 0 65rem;
+        height:25rem;
+        width:20rem;
+        margin:2rem 5rem 0 63rem;
         border: 2;
         position: fixed;
+        display: none;
     }
+
+    .chatbot_button
+    {
+        height:6rem;
+        width:6rem;
+        margin:27.8rem 5rem 0 79rem;
+        transition: transform .2s; /* Animation */
+        /* border: 3; */
+        /* border-radius: 1rem; */
+        position: fixed;
+        cursor: pointer;
+        appearance: none;
+        background-color: inherit;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center; 
+        background-attachment: fixed;
+    }
+
+    .chatbot_button:hover{
+        transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+      }
 
     h1{
         /* margin-top:2rem; */
@@ -216,8 +258,8 @@
     }
 
     .form{
-        margin:5rem 0 0 12.5rem;
-        padding:5rem 1rem 5rem 5rem;
+        margin:1.5rem 0 0 12.5rem;
+        padding:2.5rem 1rem 5rem 5rem;
         width:40rem;
         /* margin-left: 1rem; */
         font-size: 1.5rem;
@@ -260,15 +302,28 @@
 
     /* Gender */
 
+    .label_gender_category{
+        padding-left: 0.5rem;
+    }
+
+
     .label_gender{
         background-color:transparent;
-        margin-left: 2.5rem;
+        margin-left: 4.3rem;
     }
 
     .label_gender:hover{
         cursor:pointer;
     }
 
+    #male{
+        margin-top: 1rem;
+    }
+
+    #female{
+        margin-top: 1.3rem;
+
+    }
     /* Father Name */
 
     #Father_Name{
@@ -555,14 +610,7 @@
     /* Submit Button */
 
     .submit_button{
-        /* width:8rem;
-        height:2rem;
-        border-radius: 2rem;
-        font-size: 1.5rem;
-        background-color:rgba(15, 235, 15, 0.855); */
-
         background: #71c8ed;
-        /* color: #fff; */
         border: 1px solid #eee;
         border-radius: 20px;
         width:8rem;
@@ -582,7 +630,299 @@
         text-shadow: none;
     }
 
+
+    /*  ##################################       Responsive Section      ################################## */
+
+    @media only screen and (min-width: 375px) and (max-width:700px) {
+        h1{
+        /* margin-top:2rem; */
+        font-size: 4rem;
+        width:63.5rem;
+        background-color: rgba(243, 129, 15, 0.96);
+        }
+        .heading_bottom{
+            background-color:black;
+            width:63.5rem;
+            height:0.5rem;
+        }
+        .container{
+            height: 190rem;
+            width: 63.5rem;
+            padding-top: 3.5rem;
+            padding-left:-10rem;
+        }
+
+        .form{
+        margin:1.5rem 0 0 8.9rem;
+        width:40rem;
+        height:165rem;
+        font-size: 2.5rem;
+        border-radius: 2rem;
+        box-shadow: 0.7rem 0.7rem 0.7rem 0.7rem rgb(243, 242, 238);
+        }
+
+        .chatbot{
+        height:65rem;
+        width:46rem;
+        margin:14rem 5rem 0 9rem;
+        border: 2;    
+        }
+
+
+        input[type=radio] {
+            /* border: 0px; */
+            width: 8%;
+            height: 1.5rem;
+        }
+
+        #Student_Name{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem;
+
+        }
+
+
+        #Student_Name{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem;
+        }
+        #Father_Name{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem;
+        }
+        #Mother_Name{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem;
+        }
+        #Date_Of_Birth{ 
+        font-size: 2rem;
+        width:20rem;
+        height:4rem;
+        }
+        .label_roll{
+        /* background-color:transparent; */
+        margin-top: 2.5rem;
+        margin-left:1rem;
+        width:10rem;
+        float:left; 
+        }
+        #roll{ 
+        font-size: 2rem;
+        width:20rem;
+        height:4rem;
+        margin-top:1rem;
+        float:left; 
+        }
+
+        .label_branch
+        {
+        margin-top: 2.5rem;
+        margin-right:8rem;
+        margin-left:1rem;
+        width:10rem;
+        float: left;
+        }
+        #branch{ 
+        font-size: 2rem;
+        width:25rem;
+        height:4rem;
+        }
+
+        .label_year
+        {
+        margin-top: 2.5rem;
+        margin-right:8rem;
+        margin-left:1rem;
+        width:10rem;
+        float: left;
+        }
+        #year{ 
+        font-size: 2rem;
+        width:20rem;
+        height:4rem;
+        margin-top:1rem;
+        float:left; 
+        }
+
+        .label_student_contact_number
+        {
+        margin-top: 2.5rem;
+        margin-right:8rem;
+        margin-left:1rem;
+        width:30rem;
+        float: left;
+        }
+        #Contact_Number{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem; 
+        }
+
+
+        .label_father_contact_number
+        {
+        margin-top: 2.5rem;
+        margin-right:8rem;
+        margin-left:1rem;
+        width:30rem;
+        float: left;
+        }
+        #Father_Contact_Number{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem;
+        }
+
+
+        .label_mother_contact_number
+        {
+        margin-top: 2.5rem;
+        margin-right:8rem;
+        margin-left:1rem;
+        width:30rem;
+        float: left;
+        }
+        #Mother_Contact_Number{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem;
+        }
+
+        .label_email
+        {
+        margin-top: 2.5rem;
+        margin-right:8rem;
+        margin-left:1rem;
+        width:30rem;
+        float: left;
+        }
+        #Email_Id{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem;
+        }
+
+        .label_aadhar
+        {
+        margin-top: 2.5rem;
+        margin-right:8rem;
+        margin-left:1rem;
+        width:30rem;
+        float: left;
+        }
+        #Aadhar_Number{ 
+        font-size: 2rem;
+        width:35rem;
+        height:4rem;
+        }
+
+
+        .label_address
+        {
+        margin-top: 2.5rem;
+        margin-right:8rem;
+        margin-left:1rem;
+        margin-bottom:4rem;
+        width:30rem;
+        float: left;
+        }
+        #Address{ 
+        font-size: 2rem;
+        width:35rem;
+        height:12rem;
+        }
+
+        .submit_button{
+        width:9rem;
+        height:4rem;
+        margin-right:8rem;
+        margin-left:2.5rem;
+        font-size: 2.2rem;
+        }        
+    }
+
+
+    /* ############################################       For Chatbot Button       ############################################ */
+
+    @media only screen and (max-width: 450px)
+    {
+        .chatbot_button
+        {
+            height:5rem;
+            width:5rem;
+            margin:75.8rem 5rem 0 57rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center; 
+            background-attachment: fixed;
+        }
+    }
+
+    @media only screen and (min-width: 450px) and (max-width: 510px)
+    {
+        .chatbot_button
+        {
+            height:5rem;
+            width:5rem;
+            margin:65.8rem 5rem 0 57rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center; 
+            background-attachment: fixed;
+        }
+    }
+
+    @media only screen and (min-width: 510px) and (max-width: 597px)
+    {
+        .chatbot_button
+        {
+            height:5rem;
+            width:5rem;
+            margin:55.8rem 5rem 0 57rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center; 
+            background-attachment: fixed;
+        }
+    }
+
+    @media only screen and (min-width: 597px) and (max-width: 650px)
+    {
+        .chatbot_button
+        {
+            height:5rem;
+            width:5rem;
+            margin:45.8rem 5rem 0 57rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center; 
+            background-attachment: fixed;
+        }
+    }
+
+    @media only screen and (min-width: 650px) and (max-width: 700px)
+    {
+        .chatbot_button
+        {
+            height:5rem;
+            width:5rem;
+            margin:35.8rem 5rem 0 57rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center; 
+            background-attachment: fixed;
+        }
+    }
+
+
+
 </style>
+
+
 
 
 </html>
